@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2E7D32">
+    <title>Tarpu Yachay - Chugchilán</title>
+    
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+    
+    <!-- Apple Touch Icons para iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/icon-152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/icon-120.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/app.js" as="script">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-content">
+            <img src="assets/icons/seed-icon.svg" alt="Cargando..." class="loading-icon">
+            <h2>Tarpu Yachay</h2>
+            <p>Cargando...</p>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app" class="app-container hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🌱 Tarpu Yachay</h1>
+            <p>Intercambio de Semillas - Chugchilán</p>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="screen active">
+                <div class="welcome-content">
+                    <div class="welcome-icon">🌽🫘🥔</div>
+                    <h2>¡Tarikumuy!</h2>
+                    <p class="welcome-text">
+                        Bienvenido al intercambio de semillas de Chugchilán.<br>
+                        Comparte tus semillas con la comunidad.
+                    </p>
+                    <button id="start-button" class="btn-primary btn-large">
+                        <span class="btn-icon">🌱</span>
+                        Registrar Semilla
+                    </button>
+                    <button id="view-seeds-button" class="btn-secondary btn-large">
+                        <span class="btn-icon">👀</span>
+                        Ver Semillas Disponibles
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form Wizard Container -->
+            <div id="form-wizard" class="screen form-wizard">
+                <!-- Progress Indicator -->
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Identificar</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Ubicación</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Detalles</span>
+                    </div>
+                </div>
+
+                <!-- Form Steps Container -->
+                <div id="form-steps" class="form-steps">
+                    <!-- Steps will be dynamically loaded here -->
+                </div>
+
+                <!-- Navigation -->
+                <div class="form-navigation">
+                    <button id="prev-button" class="btn-secondary" disabled>
+                        ← Anterior
+                    </button>
+                    <button id="next-button" class="btn-primary">
+                        Siguiente →
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Chugchilán - Cotopaxi 🏔️</p>
+        </footer>
+    </div>
+
+    <!-- Modals and Overlays -->
+    <div id="camera-modal" class="modal hidden">
+        <!-- Camera interface will be here -->
+    </div>
+
+    <div id="audio-modal" class="modal hidden">
+        <!-- Audio recording interface will be here -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/validation.js"></script>
+    <script src="js/components/wizard.js"></script>
+    <script src="js/app.js"></script>
+    
+    <!-- Testing script (solo para development) -->
+    <script src="js/test-quick.js"></script>
+</body>
+</html>
